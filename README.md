@@ -1,4 +1,4 @@
-# 🧠 Prediksi Risiko Stroke Menggunakan Algoritma Support Vector Machine (SVM)
+# 🧠 Penerapan Algoritma Support Vector Machine (SVM) untuk Prediksi Risiko Stroke Berdasarkan Data Kesehatan Pasien
 
 > Implementasi Machine Learning untuk Deteksi Dini Risiko Stroke Berdasarkan Data Kesehatan Pasien
 
@@ -203,16 +203,34 @@ best_model = grid_search.best_estimator_
 | Metric | Nilai |
 |--------|-------|
 | **Accuracy** | 91.36% |
+| **ROC AUC** | 0.9657 |
+| **Avg Precision** | 0.9502 |
 | **Precision (Stroke)** | 0.86 |
 | **Recall (Stroke)** | 0.98 |
 | **F1-Score (Stroke)** | 0.92 |
+
+### Cross-Validation Results
+
+| Metric | Mean | Std |
+|--------|------|-----|
+| Accuracy | 0.9136 | ±0.0000 |
+| F1-Score | 0.9000 | ±0.0000 |
+| ROC AUC | 0.9657 | ±0.0000 |
+
+### Error Analysis
+
+| Error Type | Count |
+|------------|-------|
+| False Positive (FP) | 149 |
+| False Negative (FN) | 19 |
+| Total Errors | 168 |
 
 ### Best Parameters
 ```python
 {'C': 100, 'gamma': 'auto', 'kernel': 'rbf'}
 ```
 
-### 1. Visualisasi Hasil Evaluasi
+### 1. Visualisasi Hasil Evaluasi (11 Grafik)
 
 | Confusion Matrix | ROC Curve |
 |:---:|:---:|
@@ -222,13 +240,18 @@ best_model = grid_search.best_estimator_
 |:---:|:---:|
 | ![Precision-Recall Curve](results/precision_recall_curve.png) | ![Prediction Distribution](results/prediction_distribution.png) |
 
-| Model Performance |
-|:---:|
-| ![Model Performance](results/model_performance.png) |
+| Model Performance | Error Analysis |
+|:---:|:---:|
+| ![Model Performance](results/model_performance.png) | ![Error Analysis](results/error_analysis.png) |
+
+| Cross-Validation | Learning Curve |
+|:---:|:---:|
+| ![Cross-Validation](results/cross_validation.png) | ![Learning Curve](results/learning_curve.png) |
 
 > 💡 **Analisis Overfitting:** Model **TIDAK overfitting** karena:
 > - Training F1-Score: 91.45% ≈ Testing F1-Score: 92%
 > - Selisih < 1% menunjukkan model generalize dengan baik
+> - Learning curve menunjukkan gap yang stabil antara training dan validation
 
 ```python
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay

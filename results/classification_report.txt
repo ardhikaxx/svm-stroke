@@ -1,8 +1,15 @@
 ==================================================
-       HASIL EVALUASI MODEL SVM
+HASIL EVALUASI MODEL SVM
 ==================================================
 
-Accuracy  : 0.9136
+Accuracy: 0.9136
+ROC AUC: 0.9657
+Avg Precision: 0.9502
+
+Cross-Validation:
+  Accuracy: 0.9136 (+/-0.0000)
+  F1-Score: 0.9000 (+/-0.0000)
+  ROC AUC:  0.9657 (+/-0.0000)
 
               precision    recall  f1-score   support
 
@@ -12,3 +19,6 @@ Accuracy  : 0.9136
     accuracy                           0.91      1945
    macro avg       0.92      0.91      0.91      1945
 weighted avg       0.92      0.91      0.91      1945
+
+
+Errors: 168 (FP: 149, FN: 19)
