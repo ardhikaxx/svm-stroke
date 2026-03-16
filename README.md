@@ -212,25 +212,19 @@ best_model = grid_search.best_estimator_
 {'C': 100, 'gamma': 'auto', 'kernel': 'rbf'}
 ```
 
-### 1. Confusion Matrix
+### 1. Visualisasi Hasil Evaluasi
 
-![Confusion Matrix](results/confusion_matrix.png)
+| Confusion Matrix | ROC Curve |
+|:---:|:---:|
+| ![Confusion Matrix](results/confusion_matrix.png) | ![ROC Curve](results/roc_curve.png) |
 
-### 2. ROC Curve
+| Precision-Recall Curve | Prediction Distribution |
+|:---:|:---:|
+| ![Precision-Recall Curve](results/precision_recall_curve.png) | ![Prediction Distribution](results/prediction_distribution.png) |
 
-![ROC Curve](results/roc_curve.png)
-
-### 3. Precision-Recall Curve
-
-![Precision-Recall Curve](results/precision_recall_curve.png)
-
-### 4. Prediction Distribution
-
-![Prediction Distribution](results/prediction_distribution.png)
-
-### 5. Model Performance
-
-![Model Performance](results/model_performance.png)
+| Model Performance |
+|:---:|
+| ![Model Performance](results/model_performance.png) |
 
 > 💡 **Analisis Overfitting:** Model **TIDAK overfitting** karena:
 > - Training F1-Score: 91.45% ≈ Testing F1-Score: 92%
