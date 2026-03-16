@@ -19,10 +19,20 @@ Stroke merupakan salah satu penyebab kematian dan kecacatan tertinggi di dunia. 
 ├── preprocessing.ipynb      # Notebook preprocessing data
 ├── model_training.ipynb     # Notebook pelatihan model SVM
 ├── evaluation.ipynb         # Notebook evaluasi model
-├── model/
-│   └── svm_model.pkl        # Model SVM yang telah dilatih
-├── results/
-│   ├── confusion_matrix.png # Visualisasi confusion matrix
+├── data/                   # Data train/test (setelah SMOTE)
+│   ├── X_train.npy
+│   ├── X_test.npy
+│   ├── y_train.npy
+│   └── y_test.npy
+├── model/                  # Model yang telah dilatih
+│   ├── svm_model.pkl       # Model SVM terbaik
+│   └── scaler.pkl          # StandardScaler
+├── results/                # Hasil evaluasi dan visualisasi
+│   ├── confusion_matrix.png
+│   ├── roc_curve.png
+│   ├── precision_recall_curve.png
+│   ├── prediction_distribution.png
+│   ├── model_performance.png
 │   └── classification_report.txt
 └── README.md
 ```
@@ -267,7 +277,43 @@ best_model = grid_search.best_estimator_
 
 ## 📈 Evaluasi Model
 
-### Confusion Matrix
+### Hasil Klasifikasi
+
+| Metric | Nilai |
+|--------|-------|
+| **Accuracy** | 91.36% |
+| **Precision (Stroke)** | 0.86 |
+| **Recall (Stroke)** | 0.98 |
+| **F1-Score (Stroke)** | 0.92 |
+
+### Best Parameters
+```python
+{'C': 100, 'gamma': 'auto', 'kernel': 'rbf'}
+```
+
+### 1. Confusion Matrix
+
+![Confusion Matrix](results/confusion_matrix.png)
+
+### 2. ROC Curve
+
+![ROC Curve](results/roc_curve.png)
+
+### 3. Precision-Recall Curve
+
+![Precision-Recall Curve](results/precision_recall_curve.png)
+
+### 4. Prediction Distribution
+
+![Prediction Distribution](results/prediction_distribution.png)
+
+### 5. Model Performance
+
+![Model Performance](results/model_performance.png)
+
+> 💡 **Analisis Overfitting:** Model **TIDAK overfitting** karena:
+> - Training F1-Score: 91.45% ≈ Testing F1-Score: 92%
+> - Selisih < 1% menunjukkan model generalize dengan baik
 
 ```python
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
