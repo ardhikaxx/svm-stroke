@@ -12,33 +12,6 @@ Stroke merupakan salah satu penyebab kematian dan kecacatan tertinggi di dunia. 
 
 ---
 
-## 📂 Struktur Proyek
-
-```
-├── stroke-data.csv          # Dataset utama (5.110 data pasien)
-├── preprocessing.ipynb      # Notebook preprocessing data
-├── model_training.ipynb     # Notebook pelatihan model SVM
-├── evaluation.ipynb         # Notebook evaluasi model
-├── data/                   # Data train/test (setelah SMOTE)
-│   ├── X_train.npy
-│   ├── X_test.npy
-│   ├── y_train.npy
-│   └── y_test.npy
-├── model/                  # Model yang telah dilatih
-│   ├── svm_model.pkl       # Model SVM terbaik
-│   └── scaler.pkl          # StandardScaler
-├── results/                # Hasil evaluasi dan visualisasi
-│   ├── confusion_matrix.png
-│   ├── roc_curve.png
-│   ├── precision_recall_curve.png
-│   ├── prediction_distribution.png
-│   ├── model_performance.png
-│   └── classification_report.txt
-└── README.md
-```
-
----
-
 ## 📊 Dataset
 
 Dataset yang digunakan adalah **`stroke-data.csv`** yang berisi rekam medis **5.110 pasien** dengan 12 atribut kesehatan.
@@ -78,58 +51,6 @@ Dataset yang digunakan adalah **`stroke-data.csv`** yang berisi rekam medis **5.
 | `bmi` | Float | Indeks massa tubuh | 10,3 – 97,6 (**201 missing value**) |
 | `smoking_status` | Kategorikal | Status merokok | formerly smoked, never smoked, smokes, Unknown |
 | `stroke` | Biner | **Label/Target** — Riwayat stroke | 0 = Tidak Stroke, 1 = Stroke |
-
----
-
-## 🔄 Alur Penelitian (Machine Learning Pipeline)
-
-```
-┌─────────────────────┐
-│  1. Pengumpulan     │
-│     Dataset         │
-│  (5.110 data)       │
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  2. Preprocessing   │
-│  - Missing Value    │  ← 201 nilai kosong pada bmi
-│  - Encoding         │  ← 5 kolom kategorikal
-│  - Normalisasi      │  ← StandardScaler
-│  - Handle Imbalance │  ← SMOTE / class_weight
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  3. Pembagian       │
-│     Dataset         │
-│  - Training (80%)   │  ← ± 4.088 data
-│  - Testing  (20%)   │  ← ± 1.022 data
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  4. Pelatihan Model │
-│     SVM             │
-│  - Kernel RBF       │
-│  - Kernel Linear    │
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  5. Evaluasi Model  │
-│  - Confusion Matrix │
-│  - Accuracy         │
-│  - Precision        │
-│  - Recall           │
-│  - F1-Score         │
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  6. Analisis Hasil  │
-└─────────────────────┘
-```
 
 ---
 
@@ -415,19 +336,3 @@ joblib>=1.1.0
 Penelitian ini menerapkan algoritma **Support Vector Machine (SVM)** untuk memprediksi risiko stroke pada **5.110 data pasien**. Tantangan utama dalam penelitian ini adalah **ketidakseimbangan kelas** (hanya 4,87% kasus stroke), yang diatasi dengan teknik SMOTE. Dengan melakukan preprocessing yang tepat — menangani **201 missing value** pada kolom `bmi`, encoding **5 fitur kategorikal**, dan normalisasi data — serta tuning hyperparameter menggunakan GridSearchCV pada kernel **RBF** dan **Linear**, model diharapkan menghasilkan performa prediksi yang optimal. Metrik utama yang menjadi acuan adalah **Recall**, karena dalam konteks medis, meminimalkan kasus stroke yang tidak terdeteksi sangat krusial.
 
 ---
-
-## 👤 Peneliti
-
-> Penelitian ini merupakan bagian dari studi penerapan *machine learning* di bidang kesehatan.
-
----
-
-## 📄 Lisensi
-
-Proyek ini menggunakan lisensi [MIT](LICENSE).
-
----
-
-<p align="center">
-  Dibuat dengan ❤️ untuk mendukung deteksi dini stroke
-</p>
