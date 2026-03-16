@@ -1,0 +1,14 @@
+==================================================
+       HASIL EVALUASI MODEL SVM
+==================================================
+
+Accuracy  : 0.9136
+
+              precision    recall  f1-score   support
+
+   No Stroke       0.98      0.85      0.91       973
+      Stroke       0.86      0.98      0.92       972
+
+    accuracy                           0.91      1945
+   macro avg       0.92      0.91      0.91      1945
+weighted avg       0.92      0.91      0.91      1945
