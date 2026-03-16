@@ -2,6 +2,13 @@
 
 > Implementasi Machine Learning untuk Deteksi Dini Risiko Stroke Berdasarkan Data Kesehatan Pasien
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit-learn-1.0+-orange.svg)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Accuracy](https://img.shields.io/badge/Accuracy-91.36%25-brightgreen)]()
+[![ROC%20AUC](https://img.shields.io/badge/ROC%20AUC-0.9657-9cf)]()
+[![Model](https://img.shields.io/badge/Model-SVM%20(RBF)-purple)](https://scikit-learn.org/stable/modules/svm.html)
+
 ---
 
 ## 📌 Deskripsi Proyek
